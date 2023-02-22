@@ -38,8 +38,25 @@ function App() {
 
   const handlerAddTodo = () => {
     if (inputTodo.trim())
-      setListTodos([...listTodos, { key: Date.now(), id: Date.now(), condition: false, text: inputTodo }]);
+      setListTodos([
+        ...listTodos,
+        { key: Date.now(), id: Date.now(), condition: false, text: inputTodo, change: false },
+      ]);
     setInputTodo("");
+  };
+
+  const handlerChangeTodo = (todo) => {
+    setListTodos(
+      listTodos
+        .map((tempTodo) => {
+          if (tempTodo.id === todo.id) {
+            tempTodo.text = todo.text;
+            tempTodo.change = !tempTodo.change;
+          }
+          return tempTodo;
+        })
+        .filter((tempTodo) => tempTodo.text)
+    );
   };
 
   console.log(listTodos);
@@ -57,6 +74,7 @@ function App() {
         handlerDeleteReady={handlerDeleteReady}
         handlerDeleteAll={handlerDeleteAll}
         handlerAddTodo={handlerAddTodo}
+        handlerChangeTodo={handlerChangeTodo}
       />
     </>
   );

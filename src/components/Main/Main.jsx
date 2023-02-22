@@ -14,13 +14,19 @@ export const Main = ({
   handlerDeleteReady,
   handlerDeleteAll,
   handlerAddTodo,
+  handlerChangeTodo,
 }) => {
   return (
     <div className={clsx("container", cl.main)}>
       <AddToDo inputTodo={inputTodo} setInputTodo={setInputTodo} handlerAddTodo={handlerAddTodo} />
       {listTodos.length ? (
         <>
-          <ListToDo listTodos={listTodos} handlerCheckbox={handlerCheckbox} handlerDeleteTodo={handlerDeleteTodo} />
+          <ListToDo
+            listTodos={listTodos}
+            handlerCheckbox={handlerCheckbox}
+            handlerDeleteTodo={handlerDeleteTodo}
+            handlerChangeTodo={handlerChangeTodo}
+          />
           <DeleteToDo handlerDeleteReady={handlerDeleteReady} handlerDeleteAll={handlerDeleteAll} />
         </>
       ) : (

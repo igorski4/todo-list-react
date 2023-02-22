@@ -1,0 +1,12 @@
+.wrapper {
+  padding: 24px;
+  display: flex;
+  -moz-column-gap: 24px;
+  column-gap: 24px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.button_add_card {
+  width: 166px;
+  background: #272829;
+}

@@ -1,0 +1,25 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  -moz-column-gap: 16px;
+  column-gap: 16px;
+  margin-bottom: 4px;
+  height: 38px;
+}
+.wrapper:last-of-type {
+  margin-bottom: 0;
+}
+
+.text {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+  color: #54595e;
+}
+
+.text_line_throught {
+  text-decoration: line-through;
+}

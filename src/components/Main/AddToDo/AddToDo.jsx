@@ -1,14 +1,22 @@
 import React from "react";
 import { Input } from "../../UI/Input/Input";
 import { Button } from "../../UI/Button/Button";
+import { useDispatch, useSelector } from "react-redux";
+import { inputAddToDo } from "../../../store/reducerInput";
 import cl from "./AddToDo.module.css";
 
-export const AddToDo = ({ inputTodo, setInputTodo, handlerAddTodo }) => {
+export const AddToDo = ({ handlerAddTodo }) => {
+  const dispatch = useDispatch();
+
+  const inputToDo = useSelector((state) => state.inputToDo.textToDo);
+
   return (
     <div className={cl.wrapper}>
       <Input
-        value={inputTodo}
-        onChange={(e) => setInputTodo(e.target.value)}
+        value={inputToDo}
+        onChange={(e) => {
+          dispatch(inputAddToDo(e.target.value));
+        }}
         type="text"
         placeholder="Введите задачу"
       />
